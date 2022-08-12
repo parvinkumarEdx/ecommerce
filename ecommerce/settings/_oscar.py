@@ -1,5 +1,5 @@
 """Oscar-specific settings"""
-
+# Location: ecommerce/settings/_oscar.py
 
 from django.utils.translation import ugettext_lazy as _
 from oscar.defaults import *
@@ -37,9 +37,6 @@ OSCAR_APPS = [
     'ecommerce.extensions.payment',
     'ecommerce.extensions.voucher',
 
-    # Dashboard applications depend on models declared in the core applications (basket, catalogue, etc).
-    # To prevent issues with Oscar’s dynamic model loading, overrides of dashboard applications should 
-    # follow overrides of core applications 
     'oscar.apps.dashboard.reports',
     'oscar.apps.dashboard.catalogue',
     'oscar.apps.dashboard.partners',
@@ -124,7 +121,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-OSCAR_DEFAULT_CURRENCY = 'USD'
+OSCAR_DEFAULT_CURRENCY = 'INR'
 # END ORDER PROCESSING
 
 
@@ -134,6 +131,7 @@ PAYMENT_PROCESSORS = (
     'ecommerce.extensions.payment.processors.cybersource.CybersourceREST',
     'ecommerce.extensions.payment.processors.paypal.Paypal',
     'ecommerce.extensions.payment.processors.stripe.Stripe',
+    'ecommerce.extensions.payment.processors.razorpay.Razorpay',
 )
 
 PAYMENT_PROCESSOR_RECEIPT_PATH = '/checkout/receipt/'
