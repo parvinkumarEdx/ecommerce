@@ -1,0 +1,6 @@
+{% load compress %}
+{% load static %}
+
+{# NOTE: We use Razorpay v2 for credit card payments since v3 requires using Elements, which would force us #}
+{# to make a custom payment form just for Razorpay. Using v2 allows us to continue using the same payment form #}
+{# regardless of the backend processor. v3 is used for Apple Pay and the Payment Request API. #}
